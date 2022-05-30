@@ -2,18 +2,41 @@
 <html>
 <title></title>
 <body>
-<p>
-  <label>Feet</label>
-  <input type="number" placeholder="Feet" onchange="LengthConverter(this.value)">
-</p>
-<p>Centimeter: <span id="outputCM"></span></p>
+
+<p><label>Enter a number</label><input type="number" placeholder="Enter a number" onchange="Fibonacci(this.value)"></p>
+<p>Fibonacci Series: <span id="outputFibonacci"></span></p>
+
+
+<p>Numbers: <span id="outputNumber"></span></p>
+<p>Largest number: <span id="outputLargest"></span></p>
 
 <script>
-
-function LengthConverter(feet) {
-  let meters = feet/0.032808;
-  document.getElementById("outputCM").innerHTML=meters;
+function Fibonacci(fibonacci) {
+    let n1 = 0, n2 = 1, nextTerm;
+    let number = [];
+    for (let i = 1; i <= fibonacci; i++) {
+    	number.push(n1);
+	    nextTerm = n1 + n2;
+	    n1 = n2;
+	    n2 = nextTerm;
+	}
+  document.getElementById("outputFibonacci").innerHTML=number;
 }
+
+function largest(large) {
+    var arr = [10,26,35,96,102,369,41,25];
+	var biggest = arr[0];
+
+	for (var i = 0; i < arr.length; i++) {
+	    if (biggest < arr[i] ) {
+	        biggest = arr[i];
+	    }
+	}
+	document.getElementById("outputNumber").innerHTML=arr;
+	document.getElementById("outputLargest").innerHTML=biggest;
+}
+
+largest();
 
 </script>
 </body>
