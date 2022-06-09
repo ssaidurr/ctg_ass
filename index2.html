@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<title></title>
+<body>
+<p><label>Feet</label><input type="number" placeholder="Feet" onchange="LengthConverter(this.value)"></p>
+<p>Centimeter: <span id="outputCM"></span></p>
+
+
+<script>
+
+function LengthConverter(feet) {
+  let meters = feet/0.032808;
+  document.getElementById("outputCM").innerHTML=meters;
+}
+
+</script>
+</body>
+</html>
