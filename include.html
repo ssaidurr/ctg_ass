@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<title></title>
+<body>
+	
+<p id="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+
+<div id="output">
+	<input type="text" name="values" id="values">
+	<button id="searchBtn">Search</button>
+</div>
+<p id="showMessage"></p>
+<script>
+
+let submit = document.getElementById('searchBtn');
+submit.addEventListener('click',function(){
+
+	let newInput = document.getElementById('values').value;
+
+	let texts = document.getElementById('text').innerText;
+	let result = texts.includes(newInput);
+	if (result == true) {
+		document.getElementById("showMessage").innerHTML=newInput+' '+ 'word found';
+	}else{
+		document.getElementById("showMessage").innerHTML=newInput+' '+ 'word not found';
+	}
+
+})
+
+
+</script>
+</body>
+</html>
