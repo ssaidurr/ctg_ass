@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		#posts{
+			display: grid;
+			grid-template-columns: auto auto auto auto;
+			grid-gap: 30px;
+		}
+		.post{
+			color: bisque;
+			padding: 10px;
+			border-radius: 2px;
+			background-color: #333;
+		}
+	</style>
+</head>
+<body>
+<div id="posts">
+	
+</div>
+<script>
+	function loadCountry() {
+		fetch(`https://restcountries.com/v3.1/all`)
+		.then(res=>res.json())
+		.then(data=>displayCountry(data))
+	}
+	loadCountry();
+	function displayCountry(data){
+
+		let postContainer = document.getElementById('posts');
+		for(let country of data){
+			console.log(country.flags.png);
+			let singlePost = document.createElement('div');
+			singlePost.classList.add('post');
+			singlePost.innerHTML = 
+			`
+			<h3>Country Name:${country.name.common}</h3>
+			<p>Population: ${country.population}</p>
+			<p><img width:10 src="${country.flags.png}"></p>
+			
+			`;
+			postContainer.appendChild(singlePost);
+		}
+	}
+</script>
+</body>
+</html>
