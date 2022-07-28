@@ -52,15 +52,15 @@
                 hrs = hrs-12;
             }
 
-            if(hrs => 12){
+            if(hrs >= 12){
                 session.innerHTML = "PM";
             }else{
                 session.innerHTML = "AM";
             }
 
-            hrs = (hrs < 10)? "0"+hrs : hrs;
-            min = (hrs < 10)? "0"+min : min;
-            sec = (sec < 10)? "0"+sec : sec;
+            hrs = (hrs < 10)? "0" + hrs : hrs;
+            min = (min < 10)? "0" + min : min;
+            sec = (sec < 10)? "0" + sec : sec;
 
             document.getElementById('hours').innerHTML = hrs;
             document.getElementById('minutes').innerHTML = min;
